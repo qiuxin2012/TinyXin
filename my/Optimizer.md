@@ -8,7 +8,7 @@ And Optimizer is also a Optimizer factory to create Optimizer.
 ***Factory method***
 
 ```scala
-val optimizer = Opimizer[T: ClassTag](model, sampleRDD, criterion, batchSize)
+val optimizer = Opimizer[T](model, sampleRDD, criterion, batchSize)
 ```
 `T` is the numeric type(Float/Double).  
 `model` is the model will be optimized.  
