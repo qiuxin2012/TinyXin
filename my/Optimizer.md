@@ -2,7 +2,7 @@
 
 An optimizer is in general to minimize any function with respect to a set of parameters. In case of training a neural network, an optimizer tries to minimize the loss of the neural net with respect to its weights/biases, over the training set.
 
-**Scala API**
+### Scala API ###
 
 ***Factory method***
 
@@ -33,8 +33,8 @@ optimizer.setValidation(trigger, dataset, vMethods)
 ```
 `trigger` is how often to evaluation validation set.  
 `dataset` is validate data set in type of DataSet[MiniBatch].  
-`vMethods` is a set of ValidationMethod.
-
+`vMethods` is a set of ValidationMethod.  
+ <br>
 ```scala
 optimizer.setValidation(trigger, sampleRDD, vMethods, batchSize)
 ```
@@ -49,17 +49,17 @@ optimizer.setCheckpoint(path, trigger)
 ```
 Function setCheckPoint is used to set a check point saved at `path` triggered by `trigger`.  
 `path` is a local/HDFS directory to save checkpoint.  
-`trigger` is how often to save the check point.
-
+`trigger` is how often to save the check point.  
+ <br>
 ```scala
 val path = optimizer.getCheckpointPath()
 ```
-Function getCheckpointPath is used to get the directory of saving checkpoint.
-
+Function getCheckpointPath is used to get the directory of saving checkpoint.  
+ <br>
 ```scala
 optimizer.overWriteCheckpoint()
 ```
-Function overWriteCheckpoint is enable overwrite saving checkpoint.
+Function overWriteCheckpoint is enable overwrite saving checkpoint.  
 
 ***Summary***
 
@@ -67,50 +67,50 @@ Function overWriteCheckpoint is enable overwrite saving checkpoint.
 optimizer.setTrainSummary(TrainSummary)
 ```
 Function setTrainSummary is used to enable train summary in this optimizer.  
-`trainSummary` is an instance of TrainSummary.
-
+`trainSummary` is an instance of TrainSummary.  
+ <br>
 ```scala
 optimizer.setValidationSummary(ValidationSummary)
 ```
 Function setValidationSummary is used to enable validation summary in this optimizer.  
-`validationSummary` is an instance of ValidationSummary.
+`validationSummary` is an instance of ValidationSummary.  
 
 ***Other important API***
 ```scala
 optimizer.optimize()
 ```
-Function optimize will start the training.
-
+Function optimize will start the training.  
+ <br>
 ```scala
 optimizer.setModel(newModel)
 ```
 Function setModel will set a new model to the optimizer.  
-`newModel` is a model will instead of the old model in optimizer.
-
+`newModel` is a model will replace the old model in optimizer.  
+ <br>
 ```scala
 optimizer.setState(state)
 ```
 Function setState is used to set a state(learning rate, epochs...) to the `optimizer`.  
-`state` is the state to be saved.
-
+`state` is the state to be saved.  
+ <br>
 ```scala
 optimizer.setOptimMethod(method)
 ```
 Function setOptimMethod is used to set an optimization method in this `optimizer`.  
-`method` is the method the optimize the model in this `optimizer`.
-
+`method` is the method the optimize the model in this `optimizer`.  
+ <br>
 ```scala
 optimizer.setEndWhen(endWhen)
 ```
 Function setEndWhen is used to declare when to stop the training invoked by `optimize()`.  
 `endWhen` is a trigger to stop the training.
 
-**Python API**
+### Python API ###
 
 ***Factory method***
 
 ```python
-val optimizer =  Optimizer(model,
+optimizer =  Optimizer(model,
                  training_rdd,
                  criterion,
                  end_trigger,
@@ -169,11 +169,11 @@ optimizer.optimize()
 ```
 Function optimize will start the training.
 
-******
+***Set Model***
 ```python
 optimizer.set_model(model)
 ```
 Function setModel will set a new model to the optimizer.  
-`model` is a model will instead of the old model in optimizer.
+`model` is a model will replace the old model in optimizer.
 
 
