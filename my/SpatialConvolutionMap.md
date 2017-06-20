@@ -29,17 +29,17 @@ The SpatialConvolution is equivalent to using a full connection table.
 A Connection Table is the mapping of input/output feature map, stored in a 2D Tensor. The first column is the input feature maps. The second column is output feature maps.
 
 
-**Full Connection table:**
+***Full Connection table:***
 ```scala
 val conn = SpatialConvolutionMap.full(nin: Int, nout: In)
 ```
 
-**One to One connection table:**
+***One to One connection table:***
 ```scala
 val conn = SpatialConvolutionMap.oneToOne(nfeat: Int)
 ```
 
-**Random Connection table:**
+***Random Connection table:***
 ```scala
 val conn = SpatialConvolutionMap.random(nin: Int, nout: Int, nto: Int)
 ```
