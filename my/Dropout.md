@@ -2,11 +2,17 @@
 
 **Scala:**
 ```scala
-val module = Dropout(initP, [inplace], [scale])
+val module = Dropout(
+  initP: Double = 0.5,
+  inplace: Boolean = false,
+  scale: Boolean = true)
 ```
 **Python:**
 ```python
-module = Dropout()
+module = Dropout(
+  init_p=0.5,
+  inplace=False,
+  scale=True)
 ```
 
 Dropout masks(set to zero) parts of input using a bernoulli distribution.
