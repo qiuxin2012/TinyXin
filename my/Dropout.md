@@ -30,8 +30,8 @@ co-adaptation of feature detectors. For more details, plese see
 val module = Dropout()
 val x = Tensor.range(1, 8, 1).resize(2, 4)
 
-print(module.forward(x))
-print(module.backward(x, x.clone().mul(0.5f))) // backward drops out the gradients at the same location.
+println(module.forward(x))
+println(module.backward(x, x.clone().mul(0.5f))) // backward drops out the gradients at the same location.
 ```
 Output is
 ```
