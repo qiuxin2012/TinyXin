@@ -2,11 +2,17 @@
 
 **Scala:**
 ```scala
-val module = Euclidean(inputSize,outputSize)
+val module = Euclidean(
+  inputSize: Int,
+  outputSize: Int,
+  fastBackward: Boolean = true)
 ```
 **Python:**
 ```python
-module = Euclidean(inputSize,outputSize)
+module = Euclidean(
+  input_size,
+  output_size,
+  fast_backward=True)
 ```
 Outputs the Euclidean distance of the input to `outputSize` centers.
 
