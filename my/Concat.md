@@ -6,7 +6,7 @@ val module = Concat(dimension: Int)
 ```
 **Python:**
 ```python
-module = Concat(dim)
+module = Concat(dimension)
 ```
 
 Concat is a container who concatenates the output of it's submodules along the
