@@ -14,8 +14,11 @@ Apply an element-wise square operation.
 **Scala example:**
 ```scala
 val module = Square()
-> module.forward(Tensor.range(1, 6, 1))
-res4: com.intel.analytics.bigdl.tensor.Tensor[Float] =
+println(module.forward(Tensor.range(1, 6, 1)))
+```
+Output is
+```
+com.intel.analytics.bigdl.tensor.Tensor[Float] =
 1.0
 4.0
 9.0
@@ -28,5 +31,10 @@ res4: com.intel.analytics.bigdl.tensor.Tensor[Float] =
 
 **Python example:**
 ```python
-Python Code
+module = Square()
+print(module.forward(np.arange(1, 7, 1)))
+```
+Output is
+```
+[array([  1.,   4.,   9.,  16.,  25.,  36.], dtype=float32)]
 ```
