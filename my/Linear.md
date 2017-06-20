@@ -28,8 +28,10 @@ the number of columns should be equal to the `inputSize`).
 ```scala
 val module = Linear(3, 5)
 
-> module.forward(Tensor.range(1, 3, 1))
-res: com.intel.analytics.bigdl.tensor.Tensor[Float] =
+println(module.forward(Tensor.range(1, 3, 1)))
+```
+Output is
+```com.intel.analytics.bigdl.tensor.Tensor[Float] =
 0.79338956
 -2.3417668
 -2.7557678
@@ -40,5 +42,11 @@ res: com.intel.analytics.bigdl.tensor.Tensor[Float] =
 
 **Python example:**
 ```python
-Python Code
+module = Linear(3, 5)
+
+print(module.forward(np.arange(1, 4, 1)))
+```
+Output is
+```
+[array([ 0.31657887, -1.11062765, -1.16235781, -0.67723978,  0.74650359], dtype=float32)]
 ```
