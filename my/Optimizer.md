@@ -49,7 +49,7 @@ optimizer.setValidation(
 optimizer.setValidation(
   trigger: Trigger,
   sampleRDD: RDD[Sample[T]],
-  vMethods : Array[ValidationMethod[T]],
+  vMethods: Array[ValidationMethod[T]],
   batchSize: Int)
 ```
 `trigger`: how often to evaluation validation set.  
@@ -149,7 +149,7 @@ optimizer =  Optimizer(model,
                  end_trigger,
                  batch_size,
                  optim_method=None,
-                 bigdl_type="float"):
+                 bigdl_type="float")
 ```
 
 `model`: the model will be optimized.  
