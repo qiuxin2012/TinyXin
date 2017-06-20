@@ -2,7 +2,7 @@
 
 **Scala:**
 ```scala
-val module = Concat(dim)
+val module = Concat(dimension: Int)
 ```
 **Python:**
 ```python
@@ -10,7 +10,7 @@ module = Concat(dim)
 ```
 
 Concat is a container who concatenates the output of it's submodules along the
-provided dimension `dim`: all submodules take the same inputs, and their output is
+provided `dimension`: all submodules take the same inputs, and their output is
 concatenated.
 ```
                  +----Concat----+
