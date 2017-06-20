@@ -225,14 +225,14 @@ optimizer = Optimizer(
   optim_method=SGD(learningrate=0.05)
 )
 # Older version, before 0.2.0, use following code: 
-#optimizer = Optimizer(
-#  model=model,
-#    training_rdd=train_data,
-#    criterion=ClassNLLCriterion(),
-#    optim_method="SGD",
-#    state={"learningRate": 0.05},
-#    end_trigger=MaxEpoch(training_epochs),
-#    batch_size=batch_size)
+# optimizer = Optimizer(
+#   model=model,
+#   training_rdd=train_data,
+#   criterion=ClassNLLCriterion(),
+#   optim_method="SGD",
+#   state={"learningRate": 0.05},
+#   end_trigger=MaxEpoch(training_epochs),
+#   batch_size=batch_size)
 
 optimizer.set_validation(
     batch_size=2048,
