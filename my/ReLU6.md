@@ -17,8 +17,11 @@ ReLU6 is defined as:
 ```scala
 val module = ReLU6()
 
-> module.forward(Tensor.range(-2, 8, 1))
-res: com.intel.analytics.bigdl.tensor.Tensor[Float] =
+println(module.forward(Tensor.range(-2, 8, 1)))
+```
+Output is
+```
+com.intel.analytics.bigdl.tensor.Tensor[Float] =
 0.0
 0.0
 0.0
@@ -35,5 +38,11 @@ res: com.intel.analytics.bigdl.tensor.Tensor[Float] =
 
 **Python example:**
 ```python
-Python Code
+module = ReLU6()
+
+print(module.forward(np.arange(-2, 9, 1)))
+```
+Output is
+```
+[array([ 0.,  0.,  0.,  1.,  2.,  3.,  4.,  5.,  6.,  6.,  6.], dtype=float32)]
 ```
