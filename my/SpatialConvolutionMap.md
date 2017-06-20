@@ -2,30 +2,46 @@
 
 **Scala:**
 ```scala
-val layer = SpatialConvolutionMap(connTable, kW, kH, [dW], [dH], [padW], [padH])
+val layer = SpatialConvolutionMap(
+  connTable: Tensor[T],
+  kW: Int,
+  kH: Int,
+  dW: Int = 1,
+  dH: Int = 1,
+  padW: Int = 0,
+  padH: Int = 0)
 ```
 **Python:**
 ```python
-layer = SpatialConvolutionMap(connTable, kW, kH, [dW], [dH], [padW], [padH])
+layer = SpatialConvolutionMap(
+  conn_table,
+  kw,
+  kh,
+  dw=1,
+  dh=1,
+  pad_w=0,
+  pad_h=0)
 ```
 
 This class is a generalization of SpatialConvolution.
 It uses a generic connection table between input and output features.
-The SpatialConvolution is equivalent to using a full connection table.
+The SpatialConvolution is equivalent to using a full connection table.  
+A Connection Table is the mapping of input/output feature map, stored in a 2D Tensor. The first column is the input feature maps. The second column is output feature maps.
+
 
 **Full Connection table:**
-```
-conn = SpatialConvolutionMap.full(nin, nout)
+```scala
+val conn = SpatialConvolutionMap.full(nin: Int, nout: In)
 ```
 
 **One to One connection table:**
-```
-conn = SpatialConvolutionMap.oneToOne(n)
+```scala
+val conn = SpatialConvolutionMap.oneToOne(nfeat: Int)
 ```
 
 **Random Connection table:**
-```
-conn = SpatialConvolutionMap.random(nin, nout, nto)
+```scala
+val conn = SpatialConvolutionMap.random(nin: Int, nout: Int, nto: Int)
 ```
 
 
@@ -38,7 +54,6 @@ conn: com.intel.analytics.bigdl.tensor.Tensor[Float] =
 3.0	3.0
 [com.intel.analytics.bigdl.tensor.DenseTensor$mcF$sp of size 3x2]
 ```
-Connection Table is stored in a 2D Tensor. The first column is the input feature maps. The second column is output feature maps.
 
 ```
 val module = SpatialConvolutionMap(SpatialConvolutionMap.oneToOne(3), 2, 2)
