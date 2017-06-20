@@ -28,24 +28,37 @@ co-adaptation of feature detectors. For more details, plese see
 **Scala example:**
 ```scala
 val module = Dropout()
-
 val x = Tensor.range(1, 8, 1).resize(2, 4)
 
-module.forward(x)
-res: com.intel.analytics.bigdl.tensor.Tensor[Float] =
+print(module.forward(x))
+print(module.backward(x, x.clone().mul(0.5f))) // backward drops out the gradients at the same location.
+```
+Output is
+```
+com.intel.analytics.bigdl.tensor.Tensor[Float] =
 0.0     4.0     6.0     0.0
 10.0    12.0    0.0     16.0
 [com.intel.analytics.bigdl.tensor.DenseTensor of size 2x4]
 
-module.backward(x, x.clone().mul(0.5f)) // backward drops out the gradients at the same location.
-res14: com.intel.analytics.bigdl.tensor.Tensor[Float] =
+com.intel.analytics.bigdl.tensor.Tensor[Float] =
 0.0    2.0    3.0    0.0
 5.0    6.0    0.0    8.0
 [com.intel.analytics.bigdl.tensor.DenseTensor of size 2x4]
-
 ```
 
 **Python example:**
 ```python
-Python Code
+module = Dropout()
+x = np.arange(1, 9, 1).reshape(2, 4)
+
+print(module.forward(x))
+print(module.backward(x, x.copy() * 0.5)) # backward drops out the gradients at the same location.
+```
+Output is
+```
+[array([[ 0.,  4.,  6.,  0.],
+       [ 0.,  0.,  0.,  0.]], dtype=float32)]
+       
+[array([[ 0.,  2.,  3.,  0.],
+       [ 0.,  0.,  0.,  0.]], dtype=float32)]
 ```
