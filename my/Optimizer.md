@@ -91,7 +91,7 @@ Function setValidationSummary is used to enable validation summary in this optim
 
 ***Other important API***
 ```scala
-optimizer.optimize()
+val trainedModel = optimizer.optimize()
 ```
 Function optimize will start the training.  
  <br>
@@ -198,7 +198,7 @@ Function setValidationSummary is used to set validation summary. A ValidationSum
 
 ***Start Training***
 ```python
-optimizer.optimize()
+trained_model = optimizer.optimize()
 ```
 Function optimize will start the training.
 
