@@ -2,11 +2,19 @@
 
 **Scala:**
 ```scala
-val module = Linear(inputSize, outputSize)
+val module = Linear(
+  inputSize: Int,
+  outputSize: Int,
+  initMethod: InitializationMethod = Default,
+  withBias: Boolean = true)
 ```
 **Python:**
 ```python
-module = Linear(inputSize, outputSize)
+module = Linear(
+  input_size,
+  output_size,
+  init_method="default",
+  with_bias=True)
 ```
 
 The `Linear` module applies a linear transformation to the input data,
