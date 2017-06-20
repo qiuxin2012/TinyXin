@@ -2,11 +2,11 @@
 
 **Scala:**
 ```scala
-val module = MV(trans)
+val module = MV(trans: Boolean = false)
 ```
 **Python:**
 ```python
-module = MV(trans)
+module = MV(trans=False)
 ```
 
 It is a module to perform matrix vector multiplication on two mini-batch inputs, producing a mini-batch.
