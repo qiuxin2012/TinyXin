@@ -22,8 +22,11 @@ Notice: No memory copy, it set the stride along the `dim`-th dimension to zero.
 ```scala
 val module = Replicate(4, 1, 2)
 
-> module.forward(Tensor.range(1, 6, 1).resize(1, 2, 3))
-res18: com.intel.analytics.bigdl.tensor.Tensor[Float] =
+println(module.forward(Tensor.range(1, 6, 1).resize(1, 2, 3)))
+```
+Output is
+```
+com.intel.analytics.bigdl.tensor.Tensor[Float] =
 (1,1,.,.) =
 1.0	2.0	3.0
 4.0	5.0	6.0
@@ -45,5 +48,21 @@ res18: com.intel.analytics.bigdl.tensor.Tensor[Float] =
 
 **Python example:**
 ```python
-Python Code
+module = Replicate(4, 1, 2)
+
+print(module.forward(np.arange(1, 7, 1).reshape(1, 2, 3)))
+```
+Output is 
+```
+[array([[[[ 1.,  2.,  3.],
+         [ 4.,  5.,  6.]],
+
+        [[ 1.,  2.,  3.],
+         [ 4.,  5.,  6.]],
+
+        [[ 1.,  2.,  3.],
+         [ 4.,  5.,  6.]],
+
+        [[ 1.,  2.,  3.],
+         [ 4.,  5.,  6.]]]], dtype=float32)]
 ```
