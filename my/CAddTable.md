@@ -2,39 +2,41 @@
 
 **Scala:**
 ```scala
-val module = ConcatTable()
+val module = CAddTable()
 ```
 **Python:**
 ```python
-module = ConcatTable()
+module = CAddTable()
 ```
 
-ConcateTable is a container module like Concate. Applies an input
-to each member module, input can be a tensor or a table.
-ConcateTable usually works with CAddTable and CMulTable to
-implement element wise add/multiply on outputs of two modules.
+CAddTable merges the input tensors in the input table by element-wise adding. The input table is actually an array of tensor with same size.
 
 **Scala example:**
 ```scala
-val mlp = ConcatTable()
-mlp.add(Identity())
-mlp.add(Identity())
+val mlp = Sequential()
+mlp.add(ConcatTable().add(Identity()).add(Identity()))
+mlp.add(CAddTable())
 
-> mlp.forward(Tensor.range(1, 3, 1))
-res2: com.intel.analytics.bigdl.utils.Table =
- {
-	2: 1.0
-	   2.0
-	   3.0
-	   [com.intel.analytics.bigdl.tensor.DenseTensor$mcF$sp of size 3]
-	1: 1.0
-	   2.0
-	   3.0
-	   [com.intel.analytics.bigdl.tensor.DenseTensor$mcF$sp of size 3]
- }
+println(mlp.forward(Tensor.range(1, 3, 1)))
+```
+Output is
+```
+com.intel.analytics.bigdl.nn.abstractnn.Activity =
+2.0
+4.0
+6.0
+[com.intel.analytics.bigdl.tensor.DenseTensor of size 3]
 ```
 
 **Python example:**
 ```python
-Python Code
+mlp = Sequential()
+mlp.add(ConcatTable().add(Identity()).add(Identity()))
+mlp.add(CAddTable())
+
+print(mlp.forward(np.arange(1, 4, 1)))
+```
+Output is
+```
+[array([ 2.,  4.,  6.], dtype=float32)]
 ```
