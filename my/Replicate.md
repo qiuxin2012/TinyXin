@@ -2,11 +2,17 @@
 
 **Scala:**
 ```scala
-val module = Replicate(nFeatures, [dim], [nDim])
+val module = Replicate(
+  nFeatures : Int,
+  dim : Int = 1,
+  nDim : Int = Int.MaxValue)
 ```
 **Python:**
 ```python
-module = Replicate(nFeatures, [dim], [nDim])
+module = Replicate(
+  n_features,
+  dim=1,
+  n_dim=INTMAX)
 ```
 Replicate repeats input `nFeatures` times along its `dim` dimension
 
